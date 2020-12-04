@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 hello ${u}
+<form action="chat">
+<input type="text" placeholder="Enter Username" name="message" required="">
+<button type="submit" formaction="">Login</button>
+</form>
+
 </body>
 </html>

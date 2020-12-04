@@ -23,7 +23,7 @@ public class homecontroller {
 	public ModelAndView login(ModelAndView mv,@RequestParam("uname") String uname,@RequestParam("psw") String psw) {
 		//System.out.println("hello");
 		mv.setViewName("test.jsp");
-		mv.addObject("u", user.findAll());
+		mv.addObject("u", user.findById(uname));
 		return mv;
 	}
 	@RequestMapping("signup")
