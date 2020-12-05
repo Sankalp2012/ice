@@ -11,16 +11,16 @@ public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
-        return chatMessage;
+    public ChatMessagePojo sendMessage(@Payload ChatMessagePojo chatMessagePojo) {
+        return chatMessagePojo;
     }
 
     @MessageMapping("/chat.addUser")
     @SendTo("/topic/public")
-    public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+    public ChatMessagePojo addUser(@Payload ChatMessagePojo chatMessagePojo, SimpMessageHeaderAccessor headerAccessor) {
         
 // Add username in web socket session
-    headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-        return chatMessage;
+    headerAccessor.getSessionAttributes().put("username", chatMessagePojo.getSender());
+        return chatMessagePojo;
     }
 }

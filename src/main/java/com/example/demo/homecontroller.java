@@ -1,6 +1,12 @@
 package com.example.demo;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +29,15 @@ public class homecontroller {
 	public ModelAndView login(ModelAndView mv,@RequestParam("uname") String uname,@RequestParam("psw") String psw) {
 		//System.out.println("hello");
 		mv.setViewName("test.jsp");
-		mv.addObject("u", user.findById(uname));
+		//String uname="";
+		//Optional<users> u=user.findById(uname);
+		Optional<users> optional = user.findById(uname);
+
+		optional.ifPresent(user -> {
+			mv.addObject("u", user.getUname());
+		    //System.out.println("User's name = " + user.getUname());    
+		});
+		
 		return mv;
 	}
 	@RequestMapping("signup")
@@ -37,4 +51,5 @@ public class homecontroller {
 		user.save(u);
 		return "test.jsp";
 	}
+	
 }
