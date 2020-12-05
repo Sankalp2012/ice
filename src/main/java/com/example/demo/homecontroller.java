@@ -28,20 +28,26 @@ public class homecontroller {
 	@RequestMapping("login")
 	public ModelAndView login(ModelAndView mv,@RequestParam("uname") String uname,@RequestParam("psw") String psw) {
 		//System.out.println("hello");
-		mv.setViewName("test.jsp");
+		//mv.setViewName("test.jsp");
 		//String uname="";
 		//Optional<users> u=user.findById(uname);
 		Optional<users> optional = user.findById(uname);
-
+		
 		optional.ifPresent(user -> {
-			mv.addObject("u", user.getUname());
-		    //System.out.println("User's name = " + user.getUname());    
+			if(psw.equals(user.getPsw())) {
+				mv.setViewName("test.jsp");
+				mv.addObject("u", user.getUname()); 
+		}
+			else {
+				mv.setViewName("index.jsp");
+				mv.addObject("u", "incorrect password");
+			}
 		});
 		
 		return mv;
 	}
 	@RequestMapping("signup")
-	public String signup(@ModelAttribute("u") users u) {
+	public String signup(@ModelAttribute("u1") users u) {
 		/*
 		users u=new users();
 		u.setPno(pno);
@@ -49,7 +55,7 @@ public class homecontroller {
 		u.setUname(uname);
 		*/
 		user.save(u);
-		return "test.jsp";
+		return "index.jsp";
 	}
 	
 }

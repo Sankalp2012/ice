@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+${u}
 <div class="set">
 <form action="login"  method="post">
 <div>
@@ -25,8 +26,6 @@
   <div class="container" style="background-color:#f1f1f1">
     <br>
     <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw"><a href="#">Forgot password?</a></span>
-    <br>
     <span class="psw"><a href="signup.jsp">signup</a></span>
     <br>
     
