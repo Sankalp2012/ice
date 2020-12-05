@@ -17,6 +17,7 @@
             <h1 class="title">Enter your username</h1>
             <form id="usernameForm" name="usernameForm">
                 <div class="form-group">
+                	<input type="hidden" id="name" placeholder="Username" autocomplete="off" class="form-control" value=${u}  />
                     <label for="uname"><b>${u}</b></label>
                 </div>
                 <div class="form-group">

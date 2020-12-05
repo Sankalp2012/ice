@@ -9,7 +9,7 @@
 <link href="index.css" rel="stylesheet" type="text/css">
 <body>
 <div class="set">
-<form action="signup">
+<form action="signup" method="post">
 <div>
   <div class="container">
     <label for="uname"><b>Username</b></label>
@@ -19,7 +19,7 @@
     <input type="password" placeholder="Enter Password" name="psw" required>
 	<br>
 	<label for="pno"><b>Phone number</b></label>
-    <input type="text" placeholder="Enter phone number" name="pno" required>
+    <input type="tel"  name="pno" placeholder="Enter Phone Number ( 10 digits )" pattern="[0-9]{10}"required>
 	<br>
     <button type="submit">signup</button>
     <br>

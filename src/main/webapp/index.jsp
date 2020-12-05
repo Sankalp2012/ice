@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="set">
-<form action="login">
+<form action="login"  method="post">
 <div>
   <div class="container">
     <label for="uname"><b>Username</b></label>
